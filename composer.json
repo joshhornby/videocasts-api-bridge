@@ -1,0 +1,27 @@
+{
+  "name": "joshhornby/bridge",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joshua Hornby",
+      "email": "hello@joshhornby.co.uk"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "commerceguys/guzzle-oauth2-plugin": "~1.0",
+    "illuminate/support": "~4.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "~0.9"
+
+  },
+  "autoload": {
+    "psr-4": {
+      "JoshHornby\\Bridge\\": "src"
+    }
+  }
+}
