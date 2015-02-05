@@ -15,7 +15,7 @@ class Client
     /**
      * @var null|string
      */
-    protected $url = 'http://videocastsapi.app/';
+    protected $url = 'http://josh.videocastsapi.app/api/';
 
     /**
      * @param AuthInterface $oAuthAuthentication
@@ -36,7 +36,17 @@ class Client
      */
     public function getContent($token)
     {
-        return $this->send($this->getHttp($token)->get($this->url.'content'));
+        return $this->send($this->getHttp($token)->get($this->url . 'content'));
+    }
+
+    /**
+     * @param $token
+     * @param array $data
+     * @return array|string
+     */
+    public function createContent($token, array $data)
+    {
+        return $this->send($this->getHttp($token)->post($this->url . 'content', null, $data));
     }
 
     /**
@@ -50,6 +60,17 @@ class Client
     {
         $response = $request->send();
         return $json ? json_decode($response->getBody(), true) : $response->getBody();
+    }
+
+    /**
+     * Send the request and get a plain response.
+     *
+     * @param  \Guzzle\Http\Message\Request $request
+     * @return string
+     */
+    protected function sendPlain(Request $request)
+    {
+        return (string)$this->send($request, false);
     }
 
 
