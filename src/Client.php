@@ -34,9 +34,9 @@ class Client
      * @param $token
      * @return array|string
      */
-    public function getContent($token)
+    public function getContent()
     {
-        return $this->send($this->getHttp($token)->get($this->url . 'content'));
+        return $this->send($this->getHttp()->get($this->url . 'content'));
     }
 
     /**
@@ -80,10 +80,12 @@ class Client
      * @param $token
      * @return \Guzzle\Http\Client
      */
-    public function getHttp($token)
+    public function getHttp($token = null)
     {
         $client = new \Guzzle\Http\Client;
-        $client->addSubscriber($this->oAuthAuthentication->makeRequestWithToken($token));
+        if (!is_null($token)) {
+            $client->addSubscriber($this->oAuthAuthentication->makeRequestWithToken($token));
+        }
         return $client;
     }
 }
