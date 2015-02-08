@@ -31,12 +31,19 @@ class Client
     }
 
     /**
-     * @param $token
      * @return array|string
      */
     public function getContent()
     {
         return $this->send($this->getHttp()->get($this->url . 'content'));
+    }
+
+    /**
+     * @return array|string
+     */
+    public function getContentById($id)
+    {
+        return $this->send($this->getHttp()->get($this->url . 'content/'.$id));
     }
 
     /**
