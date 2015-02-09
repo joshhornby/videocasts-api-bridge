@@ -25,7 +25,7 @@ class ApiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('JoshHornby\Bridge\AuthInterface', 'JoshHornby\Bridge\OAuthAuthentication');
+        $this->app->bind('JoshHornby\Videocasts\Api\AuthInterface', 'JoshHornby\Videocasts\Api\OAuthAuthentication');
     }
 
     /**
