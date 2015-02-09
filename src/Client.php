@@ -1,6 +1,6 @@
 <?php
 
-namespace JoshHornby\Bridge;
+namespace JoshHornby\Videocasts\Api;
 
 use Guzzle\Http\Message\Request;
 
@@ -79,7 +79,6 @@ class Client
     {
         return (string)$this->send($request, false);
     }
-
 
     /**
      * Get a new HTTP client instance.

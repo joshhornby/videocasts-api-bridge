@@ -1,5 +1,5 @@
 {
-  "name": "joshhornby/bridge",
+  "name": "joshhornby/videocasts-api",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "JoshHornby\\Bridge\\": "src"
+      "JoshHornby\\Videocasts\\Api\\": "src"
     }
   }
 }

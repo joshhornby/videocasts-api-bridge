@@ -1,10 +1,10 @@
 <?php
 
-namespace JoshHornby\Bridge;
+namespace JoshHornby\Videocasts\Api;
 
 use Illuminate\Support\ServiceProvider;
 
-class PhpSdkServiceProvider extends ServiceProvider
+class ApiServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -12,6 +12,11 @@ class PhpSdkServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
+
+    public function boot()
+    {
+        // TODO: Config
+    }
 
     /**
      * Register the service provider.

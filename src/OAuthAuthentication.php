@@ -1,7 +1,8 @@
 <?php
 
-namespace JoshHornby\Bridge;
+namespace JoshHornby\Videocasts\Api;
 
+use CommerceGuys\Guzzle\Plugin\Oauth2\GrantType\PasswordCredentials;
 use Guzzle\Http\Client as Guzzle;
 use CommerceGuys\Guzzle\Plugin\Oauth2\Oauth2Plugin;
 
@@ -39,5 +40,24 @@ class OAuthAuthentication implements AuthInterface
         $this->oAuthPlugin->setAccessToken($accessToken);
 
         return $this->oAuthPlugin;
+    }
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function makeRequestWithPasswordCredentials(array $data)
+    {
+        $oauth2Client = new Guzzle('http://josh.videocastsapi.app:8000/oauth/access_token');
+        $config = array(
+            'username'      => $data['username'],
+            'password'      => $data['password'],
+            'client_id'     => $data['client_id'],
+            'client_secret' => $data['client_secret'],
+            'scope'         => $data['scopes']
+        );
+
+        $grantType = new PasswordCredentials($oauth2Client, $config);
+        return $grantType->getTokenData();
     }
 }

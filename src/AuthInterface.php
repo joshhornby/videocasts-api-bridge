@@ -1,6 +1,6 @@
 <?php
 
-namespace JoshHornby\Bridge;
+namespace JoshHornby\Videocasts\Api;
 
 interface AuthInterface
 {
@@ -10,4 +10,10 @@ interface AuthInterface
      * @return mixed
      */
     public function makeRequestWithToken($token);
+
+    /**
+     * @param array $data
+     * @return mixed
+     */
+    public function makeRequestWithPasswordCredentials(array $data);
 }
