@@ -89,7 +89,7 @@ class Client
      */
     public function getSeriesById($id)
     {
-        return $this->send($this->getHttp()->get($this->url . 'series/' . $id));
+        return $this->send($this->getHttp()->get($this->url . 'series/'.$id.'?include=content'));
     }
 
     /**
