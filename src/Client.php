@@ -57,6 +57,26 @@ class Client
     }
 
     /**
+     * @param $token
+     * @param $id
+     * @return array|string
+     */
+    public function favouriteContent($token, $id)
+    {
+        return $this->sendPlain($this->getHttp($token)->post($this->url . 'content/' . $id . '/favourite'));
+    }
+
+    /**
+     * @param $token
+     * @param $id
+     * @return array|string
+     */
+    public function deleteFavouriteContent($token, $id)
+    {
+        return $this->sendPlain($this->getHttp($token)->delete($this->url . 'content/' . $id . '/favourite'));
+    }
+
+    /**
      * Send the request and return the JSON payload as an array.
      *
      * @param  \Guzzle\Http\Message\Request $request
