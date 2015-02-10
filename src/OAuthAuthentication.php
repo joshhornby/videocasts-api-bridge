@@ -48,7 +48,7 @@ class OAuthAuthentication implements AuthInterface
      */
     public function makeRequestWithPasswordCredentials(array $data)
     {
-        $oauth2Client = new Guzzle('http://josh.videocastsapi.app:8000/oauth/access_token');
+        $oauth2Client = new Guzzle('http://josh.videocastsapi.app/oauth/access_token');
         $config = array(
             'username'      => $data['username'],
             'password'      => $data['password'],

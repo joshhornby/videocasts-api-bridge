@@ -77,6 +77,22 @@ class Client
     }
 
     /**
+     * @return array|string
+     */
+    public function getSeries()
+    {
+        return $this->send($this->getHttp()->get($this->url . 'series'));
+    }
+
+    /**
+     * @return array|string
+     */
+    public function getSeriesById($id)
+    {
+        return $this->send($this->getHttp()->get($this->url . 'series/' . $id));
+    }
+
+    /**
      * Send the request and return the JSON payload as an array.
      *
      * @param  \Guzzle\Http\Message\Request $request
