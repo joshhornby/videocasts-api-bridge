@@ -93,6 +93,14 @@ class Client
     }
 
     /**
+     * @return array|string
+     */
+    public function getPlans()
+    {
+        return $this->send($this->getHttp()->get($this->url . 'plans'));
+    }
+
+    /**
      * Send the request and return the JSON payload as an array.
      *
      * @param  \Guzzle\Http\Message\Request $request
