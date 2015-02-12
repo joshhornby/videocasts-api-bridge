@@ -95,6 +95,14 @@ class Client
     /**
      * @return array|string
      */
+    public function getSite()
+    {
+        return $this->send($this->getHttp()->get($this->url . 'store'));
+    }
+
+    /**
+     * @return array|string
+     */
     public function getPlans()
     {
         return $this->send($this->getHttp()->get($this->url . 'plans'));
