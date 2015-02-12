@@ -109,6 +109,16 @@ class Client
     }
 
     /**
+     * @param $token
+     * @param array $data
+     * @return array|string
+     */
+    public function createUser(array $data)
+    {
+        return $this->send($this->getHttp()->post($this->url . 'users', null, $data));
+    }
+
+    /**
      * Send the request and return the JSON payload as an array.
      *
      * @param  \Guzzle\Http\Message\Request $request
